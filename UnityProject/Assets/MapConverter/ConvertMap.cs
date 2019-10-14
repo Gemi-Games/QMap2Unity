@@ -20,8 +20,6 @@ namespace QMapToUnity
         private static int s_CutoffEnabledID;
         private static int s_CutoffAlphaID;
 
-        private static GameObject s_LevelObject;
-
         public static void ConvertMapToUnityObjects(ConvertMapSettings lSettings)
         {
             s_Settings = lSettings;
@@ -46,25 +44,16 @@ namespace QMapToUnity
                 s_CutoffAlphaID = Shader.PropertyToID("_Cutoff");
             }
 
-            //m_Textures = Resources.FindObjectsOfTypeAll<Texture2D>();
-
             s_MaterialDic = new Dictionary<string, Material>(s_Settings.TexDefs.Textures.Length);
-
-            GameObject.DestroyImmediate(s_LevelObject);
-
-            string lLevelTag = "QMapLevel"; // Replace this with a script
-
-            GameObject[] lCurrentLevels = GameObject.FindGameObjectsWithTag(lLevelTag);
+            
+            QMapLevel[] lCurrentLevels = Object.FindObjectsOfType<QMapLevel>();
 
             for (int i = 0; i < lCurrentLevels.Length; i++)
-                GameObject.DestroyImmediate(lCurrentLevels[i]);
+                Object.DestroyImmediate(lCurrentLevels[i].gameObject);
 
             GameObject lLevelObject = new GameObject(s_Settings.MapFile.name);
-            lLevelObject.tag = lLevelTag;
-
+            lLevelObject.AddComponent<QMapLevel>();
             lLevelObject.isStatic = true;
-
-            s_LevelObject = lLevelObject;
 
             LevelData lLevelData = MapParser.ParseMapToLevelData(s_Settings.MapFile);
 
@@ -189,8 +178,8 @@ namespace QMapToUnity
                             lMCollider.convex = true;
                             lMCollider.isTrigger = lEntDef.IsTrigger;
 
-                            if (s_Settings.SaveLevelAsAsset)
-                                AssetDatabase.CreateAsset(lNewMeshes[0], GetAssetPath(lEntGO.name, lColliderGO.name, lNewMeshes[0].name));
+                            //if (s_Settings.SaveLevelAsAsset)
+                            //    AssetDatabase.CreateAsset(lNewMeshes[0], GetAssetPath(lEntGO.name, lColliderGO.name, lNewMeshes[0].name));
                         }
 
                         if (lEntDef.HasMesh)
@@ -215,10 +204,13 @@ namespace QMapToUnity
 
                                 lMFilter.mesh = lNewMeshes[m];
 
-                                if (s_Settings.SaveLevelAsAsset)
-                                    AssetDatabase.CreateAsset(lNewMeshes[m], GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lNewMeshes[m].name));
+                                //if (s_Settings.SaveLevelAsAsset)
+                                //    AssetDatabase.CreateAsset(lNewMeshes[m], GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lNewMeshes[m].name));
 
+                                //
                                 // Add Area Lights
+                                //
+
                                 TexDef lTexDef;
                                 if (s_Settings.TexDefs.HasDefinition(lTextures[m - 1].name, out lTexDef) && lTexDef.HasAreaLight)
                                 {
@@ -306,8 +298,8 @@ namespace QMapToUnity
 
                                     lALMFilter.mesh = lAreaLightMesh;
 
-                                    if (s_Settings.SaveLevelAsAsset)
-                                        AssetDatabase.CreateAsset(lAreaLightMesh, GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lAreaLightMesh.name));
+                                    //if (s_Settings.SaveLevelAsAsset)
+                                    //    AssetDatabase.CreateAsset(lAreaLightMesh, GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lAreaLightMesh.name));
                                 }
                             }
                         }
@@ -371,8 +363,8 @@ namespace QMapToUnity
                         lMCollider.convex = true;
                         lMCollider.isTrigger = lEntDef.IsConvexTrigger;
 
-                        if (s_Settings.SaveLevelAsAsset)
-                            AssetDatabase.CreateAsset(lConvexMesh[0], GetAssetPath(lEntGO.name, "CONVEX", lConvexMesh[0].name));
+                        //if (s_Settings.SaveLevelAsAsset)
+                        //    AssetDatabase.CreateAsset(lConvexMesh[0], GetAssetPath(lEntGO.name, "CONVEX", lConvexMesh[0].name));
                     }
 
                     lUEnt.SetupEntity(lQEnt);
@@ -392,26 +384,24 @@ namespace QMapToUnity
                 }
             }
 
-            bool lSuccess;
+            //var lSO = new SerializedObject(lLevelObject);
 
-            var lSO = new SerializedObject(lLevelObject);
+            //if (lSO.ApplyModifiedProperties())
+            //{
+            //    bool lBreakpoint = false;
+            //}
 
-            if (lSO.ApplyModifiedProperties())
-            {
-                bool lb = false;
-            }
+            //if (s_Settings.SaveLevelAsAsset)
+            //{
+            //    PrefabUtility.SaveAsPrefabAsset(lLevelObject, "Assets/" + s_Settings.MapFile.name + ".prefab", out lSuccess);
+            //    AssetDatabase.Refresh();
+            //    AssetDatabase.SaveAssets();
+            //}
 
-            if (s_Settings.SaveLevelAsAsset)
-            {
-                PrefabUtility.SaveAsPrefabAsset(lLevelObject, "Assets/" + s_Settings.MapFile.name + ".prefab", out lSuccess);
-                AssetDatabase.Refresh();
-                AssetDatabase.SaveAssets();
-            }
-
-            if (EditorGUI.EndChangeCheck())
-            {
-                bool lb = false;
-            }
+            //if (EditorGUI.EndChangeCheck())
+            //{
+            //    bool lBreakpoint = false;
+            //}
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }

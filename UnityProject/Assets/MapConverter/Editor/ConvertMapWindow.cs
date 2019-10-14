@@ -18,7 +18,7 @@ namespace QMapToUnity
 
         private GameObject m_LevelObject;
 
-        [MenuItem("QMap", menuItem = "QMap/QMap Window")]
+        [MenuItem("Q2U", menuItem = "Q2U/QMapToUnity Window")]
         public static void ShowWindow()
         {
             GetWindow<ConvertMapWindow>("Convert Map");

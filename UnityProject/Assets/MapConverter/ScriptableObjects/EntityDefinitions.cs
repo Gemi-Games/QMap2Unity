@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace QMapToUnity
 {
-    [CreateAssetMenu(fileName = "Entity Definitions", menuName = "Gemi/Entity Definitions")]
+    [CreateAssetMenu(fileName = "EntityDefinitions", menuName = "QMapToUnity/Entity Definitions")]
     public class EntityDefinitions : ScriptableObject
     {
         public EntDef Worldspawn = new EntDef(MapParser.WORLDSPAWN);

@@ -1,5 +1,7 @@
 # QMap2Unity
 
+** Still under construction **
+
 A Unity engine extension that converts Quake style *.map files into mesh, collider and entity objects for use in a Unity scene.
 
 ## Features

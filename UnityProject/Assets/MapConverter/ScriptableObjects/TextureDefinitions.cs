@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace QMapToUnity
 {
-    [CreateAssetMenu(fileName = "Texture Definitions", menuName = "Gemi/Texture Definitions")]
+    [CreateAssetMenu(fileName = "TextureDefinitions", menuName = "QMapToUnity/Texture Definitions")]
     public class TextureDefinitions : ScriptableObject
     {
         public Texture[] Textures;
