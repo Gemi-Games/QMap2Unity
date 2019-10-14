@@ -1,7 +1,5 @@
 # QMap2Unity
 
-[![QMap2Unity Icon](resources/images/Q2UIcon.png)]
-
 A Unity engine extension that converts Quake style *.map files into mesh, collider and entity objects for use in a Unity scene.
 
 ## Features
@@ -15,8 +13,9 @@ A Unity engine extension that converts Quake style *.map files into mesh, collid
 - Configure entity parameters inside the TrenchBroom editor for one-button conversions into ready-to-use Unity scenes
 
 ## Roadmap
-- Per texture custom materials
 - 
+- Per texture custom materials
+- Save levels as prefabs
 
 
 ## Notes
