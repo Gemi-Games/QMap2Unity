@@ -17,9 +17,9 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="Q2UIcon.svg"
-   inkscape:export-filename="C:\Users\mazk1\Downloads\QMap2Unity-master\QMap2Unity-master\resources\images\Q2UIcon.png"
-   inkscape:export-xdpi="240.00002"
-   inkscape:export-ydpi="240.00002"
+   inkscape:export-filename="C:\Current Projects\QMapToUnityConverter\trunk\resources\Q2UIconSmall.png"
+   inkscape:export-xdpi="24.000002"
+   inkscape:export-ydpi="24.000002"
    enable-background="new">
   <defs
      id="defs2">
@@ -97,7 +97,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="85.92924"
+     inkscape:cx="-21.374215"
      inkscape:cy="94.158452"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"

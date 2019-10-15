@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: TestTextureDefinitions
   m_EditorClassIdentifier: 
   Textures: []
-  Definitions: []
+  Definitions:
+  - Name: 
+    IsCutout: 0
+    CutoutAlpha: 0
+    EmissiveTexture: {fileID: 0}
+    EmissiveColour: {r: 0, g: 0, b: 0, a: 0}
+    HasAreaLight: 0
+    AreaColour: {r: 0, g: 0, b: 0, a: 0}
+    AreaDisplacement: 0
+    AreaSizeScale: 0

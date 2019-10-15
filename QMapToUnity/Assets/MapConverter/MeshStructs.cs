@@ -1,21 +1,24 @@
-﻿/*
-
-ClipMeshStructs.cs and ClipMesh.cs are adapted directly from the pdf file linked below:
-
-https://www.geometrictools.com/Documentation/ClipMesh.pdf
-
-Clipping a Mesh Against a Plane
-David Eberly, Geometric Tools, Redmond WA 98052
-https://www.geometrictools.com/
-
-This work is licensed under the Creative Commons Attribution 4.0 International License.To view a copy
-of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons,
-PO Box 1866, Mountain View, CA 94042, USA.
-
-Created:  February 28, 2002
-Last Modified:  March 1, 2008
-
-*/
+﻿/**
+ * 
+ * MeshStructs.cs and ClipMesh.cs are adapted directly from the pdf file linked below:
+ * 
+ * https://www.geometrictools.com/Documentation/ClipMesh.pdf
+ * 
+ * Clipping a Mesh Against a Plane
+ * David Eberly, Geometric Tools, Redmond WA 98052
+ * https://www.geometrictools.com/
+ * 
+ * This work is licensed under the Creative Commons Attribution 4.0 International License.To view a copy
+ * of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons,
+ * PO Box 1866, Mountain View, CA 94042, USA.
+ * 
+ * Author Created:  February 28, 2002
+ * Author Last Modified:  March 1, 2008
+ * 
+ * Q2U Created:  February 2, 2019
+ * Q2U Last Modified:  October 15, 2019
+ * 
+**/
 
 using System.Collections.Generic;
 using UnityEngine;

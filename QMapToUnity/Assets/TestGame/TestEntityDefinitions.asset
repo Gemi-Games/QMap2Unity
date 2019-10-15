@@ -30,4 +30,21 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1
     HasMesh: 1
-  Definitions: []
+  Definitions:
+  - Classname: 
+    Prefab: {fileID: 0}
+    IsStatic: 0
+    EntLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    HasConvexCollider: 0
+    IsConvexTrigger: 0
+    ColLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    HasCollider: 0
+    IsTrigger: 0
+    MeshLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    HasMesh: 0
