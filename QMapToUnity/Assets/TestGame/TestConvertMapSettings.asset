@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10983e07ee577a74ca8a739afb80b9da, type: 3}
   m_Name: TestConvertMapSettings
   m_EditorClassIdentifier: 
-  MapFile: {fileID: 0}
-  TexDefs: {fileID: 0}
-  EntDefs: {fileID: 0}
-  StandardMaterial: {fileID: 0}
-  CutoutMaterial: {fileID: 0}
-  EmissiveMaterial: {fileID: 0}
-  AreaLightMaterial: {fileID: 0}
+  MapFile: {fileID: 4900000, guid: 2e26f29d64f3ac64aa63440f05d45c5b, type: 3}
+  TexDefs: {fileID: 11400000, guid: 66dbbee70489c274697752fb309f1096, type: 2}
+  EntDefs: {fileID: 11400000, guid: ee27142f6d2f70f49a0ee961b77d94e6, type: 2}
+  StandardMaterial: {fileID: 2100000, guid: ac385714993be704692eb7cde555cbc0, type: 2}
+  CutoutMaterial: {fileID: 2100000, guid: ef4a82e89cf75114394a3a0144d2aa1d, type: 2}
+  EmissiveMaterial: {fileID: 2100000, guid: ee1c7529293c0354a8e896127f1cccc2, type: 2}
+  AreaLightMaterial: {fileID: 2100000, guid: 58cd431112b58104d91501b0a8a6c0f4, type: 2}
   AutoGenerateUV2s: 0
   UsingHDRPMaterials: 0

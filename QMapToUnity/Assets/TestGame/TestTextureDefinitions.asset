@@ -12,14 +12,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e321f0360a9aee842abbbf701ecd537a, type: 3}
   m_Name: TestTextureDefinitions
   m_EditorClassIdentifier: 
-  Textures: []
+  Textures:
+  - {fileID: 2800000, guid: ec440e7712efa56468cdf3ce46c68257, type: 3}
+  - {fileID: 2800000, guid: 487cc2fe542f0d641b4d4195f2ae1000, type: 3}
+  - {fileID: 2800000, guid: a18814601f022514fb3d8ae90332b38f, type: 3}
+  - {fileID: 2800000, guid: 46c5bc09e340882428d455ce6855cf90, type: 3}
+  - {fileID: 2800000, guid: c6589df163912514393dadedaae1ac4d, type: 3}
+  - {fileID: 2800000, guid: fcc039c91d93ad5488baf95a7c17a140, type: 3}
+  - {fileID: 2800000, guid: 658ea2731c3b1a0418d9b4548d4b712a, type: 3}
+  - {fileID: 2800000, guid: 96a4eb56d3d29a5488cf08c44593c29b, type: 3}
+  - {fileID: 2800000, guid: 09d91c9b3386e0f4b967428fd54d0c46, type: 3}
+  - {fileID: 2800000, guid: d9c56ee3403d2fd4f9a993e693f00e4c, type: 3}
+  - {fileID: 2800000, guid: cec524f9032d66044aefd28ff3fbb2b0, type: 3}
+  - {fileID: 2800000, guid: e7fefdb6ebe748444b4580f7b7060524, type: 3}
+  - {fileID: 2800000, guid: 74234eec53959a74f8df87f6cf83b21d, type: 3}
+  - {fileID: 2800000, guid: 640142bd4cbb5f247b413e4557ad3298, type: 3}
+  - {fileID: 2800000, guid: fb6ffe2013b7b714cabd1192b81773c4, type: 3}
+  - {fileID: 2800000, guid: ce67018b06ff75d4fbd73639802118ab, type: 3}
+  - {fileID: 2800000, guid: 3aa4fd71b55b32f4e8935360083b401b, type: 3}
+  - {fileID: 2800000, guid: c5cf3f4362ce491438705064905e16c6, type: 3}
+  - {fileID: 2800000, guid: 4b2506850fd88534aaa2711702e4bdc4, type: 3}
   Definitions:
-  - Name: 
-    IsCutout: 0
-    CutoutAlpha: 0
+  - Name: CutRound
+    IsCutout: 1
+    CutoutAlpha: 0.5
     EmissiveTexture: {fileID: 0}
     EmissiveColour: {r: 0, g: 0, b: 0, a: 0}
     HasAreaLight: 0
     AreaColour: {r: 0, g: 0, b: 0, a: 0}
     AreaDisplacement: 0
     AreaSizeScale: 0
+  - Name: CutStraight
+    IsCutout: 1
+    CutoutAlpha: 0.5
+    EmissiveTexture: {fileID: 0}
+    EmissiveColour: {r: 0, g: 0, b: 0, a: 0}
+    HasAreaLight: 0
+    AreaColour: {r: 0, g: 0, b: 0, a: 0}
+    AreaDisplacement: 0
+    AreaSizeScale: 0
+  - Name: LightCool
+    IsCutout: 0
+    CutoutAlpha: 0
+    EmissiveTexture: {fileID: 2800000, guid: e7fefdb6ebe748444b4580f7b7060524, type: 3}
+    EmissiveColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
+    HasAreaLight: 1
+    AreaColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
+    AreaDisplacement: 0.25
+    AreaSizeScale: 1
+  - Name: LightWarm
+    IsCutout: 0
+    CutoutAlpha: 0
+    EmissiveTexture: {fileID: 2800000, guid: 74234eec53959a74f8df87f6cf83b21d, type: 3}
+    EmissiveColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}
+    HasAreaLight: 1
+    AreaColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}
+    AreaDisplacement: 0.25
+    AreaSizeScale: 1
