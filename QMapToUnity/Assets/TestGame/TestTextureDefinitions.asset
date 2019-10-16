@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: TestTextureDefinitions
   m_EditorClassIdentifier: 
   Textures:
-  - {fileID: 2800000, guid: ec440e7712efa56468cdf3ce46c68257, type: 3}
-  - {fileID: 2800000, guid: 487cc2fe542f0d641b4d4195f2ae1000, type: 3}
-  - {fileID: 2800000, guid: a18814601f022514fb3d8ae90332b38f, type: 3}
-  - {fileID: 2800000, guid: 46c5bc09e340882428d455ce6855cf90, type: 3}
-  - {fileID: 2800000, guid: c6589df163912514393dadedaae1ac4d, type: 3}
-  - {fileID: 2800000, guid: fcc039c91d93ad5488baf95a7c17a140, type: 3}
-  - {fileID: 2800000, guid: 658ea2731c3b1a0418d9b4548d4b712a, type: 3}
-  - {fileID: 2800000, guid: 96a4eb56d3d29a5488cf08c44593c29b, type: 3}
-  - {fileID: 2800000, guid: 09d91c9b3386e0f4b967428fd54d0c46, type: 3}
-  - {fileID: 2800000, guid: d9c56ee3403d2fd4f9a993e693f00e4c, type: 3}
-  - {fileID: 2800000, guid: cec524f9032d66044aefd28ff3fbb2b0, type: 3}
-  - {fileID: 2800000, guid: e7fefdb6ebe748444b4580f7b7060524, type: 3}
-  - {fileID: 2800000, guid: 74234eec53959a74f8df87f6cf83b21d, type: 3}
-  - {fileID: 2800000, guid: 640142bd4cbb5f247b413e4557ad3298, type: 3}
-  - {fileID: 2800000, guid: fb6ffe2013b7b714cabd1192b81773c4, type: 3}
-  - {fileID: 2800000, guid: ce67018b06ff75d4fbd73639802118ab, type: 3}
-  - {fileID: 2800000, guid: 3aa4fd71b55b32f4e8935360083b401b, type: 3}
-  - {fileID: 2800000, guid: c5cf3f4362ce491438705064905e16c6, type: 3}
-  - {fileID: 2800000, guid: 4b2506850fd88534aaa2711702e4bdc4, type: 3}
+  - {fileID: 2800000, guid: 1dc6e83e99832524e9a97e1f8fef44b7, type: 3}
+  - {fileID: 2800000, guid: ed01fc5c4b8b4a64b9a004c7811187b2, type: 3}
+  - {fileID: 2800000, guid: 7ee4a6af2b5081142b159f5986291f3d, type: 3}
+  - {fileID: 2800000, guid: f2f9bb53565dd3448b1620b058890455, type: 3}
+  - {fileID: 2800000, guid: 1e5235e37f90be64b96850ccddf00056, type: 3}
+  - {fileID: 2800000, guid: fa0fba2146239ae46a27ce264420ccce, type: 3}
+  - {fileID: 2800000, guid: 9457476100541414bab93dc044b4e6a5, type: 3}
+  - {fileID: 2800000, guid: 7e82f896f805fca4594cfe093f4677cf, type: 3}
+  - {fileID: 2800000, guid: dbf420d0e66d1954fbcae441bd95c5ea, type: 3}
+  - {fileID: 2800000, guid: 1275ef04902e2b542bc2671b3b903b8a, type: 3}
+  - {fileID: 2800000, guid: dda5d2ad565fc3e459d5f0d331fed11c, type: 3}
+  - {fileID: 2800000, guid: 6dd546eb555f3eb4786b08c5ce1897a5, type: 3}
+  - {fileID: 2800000, guid: 264f61a7b7b44ae43a69331d8bfe471a, type: 3}
+  - {fileID: 2800000, guid: 00345135e27159842b614beefcacafe5, type: 3}
+  - {fileID: 2800000, guid: 323eb94048d48054a88fd862fdddf119, type: 3}
+  - {fileID: 2800000, guid: b2d65ceadc945164fbd198b9507f8c95, type: 3}
+  - {fileID: 2800000, guid: 7584f8e79709b0c49849da9b7e6b1526, type: 3}
+  - {fileID: 2800000, guid: e5b24c1abd8bdaa43a00e98504afd3c6, type: 3}
+  - {fileID: 2800000, guid: 32cbc429d922f98409913985cd15f346, type: 3}
   Definitions:
   - Name: CutRound
     IsCutout: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   - Name: LightCool
     IsCutout: 0
     CutoutAlpha: 0
-    EmissiveTexture: {fileID: 2800000, guid: e7fefdb6ebe748444b4580f7b7060524, type: 3}
+    EmissiveTexture: {fileID: 2800000, guid: 6dd546eb555f3eb4786b08c5ce1897a5, type: 3}
     EmissiveColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
     HasAreaLight: 1
     AreaColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   - Name: LightWarm
     IsCutout: 0
     CutoutAlpha: 0
-    EmissiveTexture: {fileID: 2800000, guid: 74234eec53959a74f8df87f6cf83b21d, type: 3}
+    EmissiveTexture: {fileID: 2800000, guid: 264f61a7b7b44ae43a69331d8bfe471a, type: 3}
     EmissiveColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}
     HasAreaLight: 1
     AreaColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}

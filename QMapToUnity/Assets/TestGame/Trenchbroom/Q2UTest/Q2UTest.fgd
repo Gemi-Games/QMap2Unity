@@ -1,0 +1,89 @@
+//
+// Q2UTest definition file
+// for TrenchBroom 2.0 and above
+//
+// Gemi Games
+//
+
+@SolidClass = worldspawn : "Worldspawn"
+[
+	levelname(string) : "Level Name"
+]
+
+// Basics
+
+@baseclass = Angle
+[ 
+	angle(integer) : "Angle" 
+]
+
+@baseclass = Targetname
+[ 
+	targetname(string) : "Name" 
+]
+
+@baseclass = Target
+[ 
+	target(string) : "Target"
+]
+
+@baseclass base(Angle, Targetname, Target)= ATT []
+
+// Actors
+
+@baseclass size(-16 -16 -48, 16 16 48) color(40 255 40) = ActorClass []
+
+@PointClass base(ActorClass, Angle) = info_player_start : "Player start" []
+
+// Info
+
+@PointClass base(Targetname) size(-16 -16 -16, 16 16 16) color(200 50 50) = info_target : "Position Target" []
+
+// Lights
+
+@baseclass size(-16 -16 -16, 16 16 16) color(255 220 160) = Light
+[
+	intensity(float) : "Intensity" : "1.0"
+	color(color) : "Colour" : "255 220 160"
+	
+	shadowMode(choices) : "Shadow Mode" : 1 =
+	[
+		0 : "Realtime"
+		1 : "Mixed"
+		2 : "Baked"
+	]	
+	
+	shadowMode(choices) : "Shadow Mode" : 0 =
+	[
+		0 : "No Shadows"
+		1 : "Hard Shadows"
+		2 : "Soft Shadows"
+	]
+]
+
+@PointClass base(Light) = light_point : "Point light"
+[
+	range(float) : "Range" : "192.0"
+]
+
+@PointClass base(Light) = light_sun : "Sun light"
+[
+	shadowMode(choices) : "Shadow Mode" : 2 =
+	[
+		0 : "No Shadows"
+		1 : "Hard Shadows"
+		2 : "Soft Shadows"
+	]
+	
+	yaw(float) : "Yaw" : "60.0"
+	pitch(float) : "Pitch" : "60.0"
+]
+
+// Triggers
+
+@baseclass base(Targetname, Target) = Trigger []
+
+@SolidClass base(Trigger) = trigger_jump : "Trigger jump" []
+
+
+

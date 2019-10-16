@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -46,10 +47,10 @@ namespace QMapToUnity
 
             s_MaterialDic = new Dictionary<string, Material>(s_Settings.TexDefs.Textures.Length);
             
-            QMapLevel[] lCurrentLevels = Object.FindObjectsOfType<QMapLevel>();
+            QMapLevel[] lCurrentLevels = GameObject.FindObjectsOfType<QMapLevel>();
 
             for (int i = 0; i < lCurrentLevels.Length; i++)
-                Object.DestroyImmediate(lCurrentLevels[i].gameObject);
+                GameObject.DestroyImmediate(lCurrentLevels[i].gameObject);
 
             GameObject lLevelObject = new GameObject(s_Settings.MapFile.name);
             lLevelObject.AddComponent<QMapLevel>();
@@ -207,9 +208,11 @@ namespace QMapToUnity
                                 //if (s_Settings.SaveLevelAsAsset)
                                 //    AssetDatabase.CreateAsset(lNewMeshes[m], GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lNewMeshes[m].name));
 
-                                //
-                                // Add Area Lights
-                                //
+                                /**
+                                 * 
+                                 *  Add Area Lights
+                                 * 
+                                **/
 
                                 TexDef lTexDef;
                                 if (s_Settings.TexDefs.HasDefinition(lTextures[m - 1].name, out lTexDef) && lTexDef.HasAreaLight)
@@ -219,7 +222,7 @@ namespace QMapToUnity
                                     lAreaLightGO.transform.parent = lMeshGO.transform;
 
                                     lAreaLightGO.isStatic = lEntDef.IsStatic;
-                                    lAreaLightGO.layer = LayerMask.NameToLayer("AreaLight");
+                                    //lAreaLightGO.layer = LayerMask.NameToLayer("AreaLight");
 
                                     MeshFilter lALMFilter = lAreaLightGO.AddComponent<MeshFilter>();
                                     MeshRenderer lALMRender = lAreaLightGO.AddComponent<MeshRenderer>();
@@ -292,7 +295,7 @@ namespace QMapToUnity
                                     lAreaLightMesh.RecalculateTangents();
                                     lAreaLightMesh.RecalculateBounds();
 
-                                    lAreaLightMesh.name = "Area Light";
+                                    lAreaLightMesh.name = "Area Light Mesh";
 
                                     Unwrapping.GenerateSecondaryUVSet(lAreaLightMesh);
 
@@ -459,7 +462,10 @@ namespace QMapToUnity
 
             for (int i = 0; i < lCount; i++)
             {
-                string lTexName = lTextureNames[i];
+                string lFilePath = lTextureNames[i];
+                string[] lPathNames = lFilePath.Split('/');
+
+                string lTexName = lPathNames[lPathNames.Length - 1];
 
                 Texture lTexture = null;
 
@@ -576,7 +582,12 @@ namespace QMapToUnity
                 {
                     FaceInfo lFaceInfo = lMeshData.FaceInfos[f];
 
-                    if (lFaceInfo.Plane.TextureData.Name == lTexture.name)
+                    string lFilePath = lFaceInfo.Plane.TextureData.Name;
+                    string[] lPathNames = lFilePath.Split('/');
+
+                    string lTexName = lPathNames[lPathNames.Length - 1];
+
+                    if (lTexName == lTexture.name)
                     {
                         TextureData lTexData = lFaceInfo.Plane.TextureData;
 
