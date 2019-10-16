@@ -46,14 +46,14 @@
 	intensity(float) : "Intensity" : "1.0"
 	color(color) : "Colour" : "255 220 160"
 	
-	shadowMode(choices) : "Shadow Mode" : 1 =
+	lightMode(choices) : "Light Mode" : 1 =
 	[
 		0 : "Realtime"
 		1 : "Mixed"
 		2 : "Baked"
 	]	
 	
-	shadowMode(choices) : "Shadow Mode" : 0 =
+	shadowMode(choices) : "Shadow Mode" : 2 =
 	[
 		0 : "No Shadows"
 		1 : "Hard Shadows"
@@ -67,14 +67,7 @@
 ]
 
 @PointClass base(Light) = light_sun : "Sun light"
-[
-	shadowMode(choices) : "Shadow Mode" : 2 =
-	[
-		0 : "No Shadows"
-		1 : "Hard Shadows"
-		2 : "Soft Shadows"
-	]
-	
+[	
 	yaw(float) : "Yaw" : "60.0"
 	pitch(float) : "Pitch" : "60.0"
 ]

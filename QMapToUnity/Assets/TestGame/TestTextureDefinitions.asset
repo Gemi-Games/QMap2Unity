@@ -57,7 +57,7 @@ MonoBehaviour:
     EmissiveTexture: {fileID: 2800000, guid: 6dd546eb555f3eb4786b08c5ce1897a5, type: 3}
     EmissiveColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
     HasAreaLight: 1
-    AreaColour: {r: 0.4862745, g: 0.6117647, b: 2.572549, a: 0}
+    AreaColour: {r: 0.99669445, g: 1.2391336, b: 5.145098, a: 0}
     AreaDisplacement: 0.25
     AreaSizeScale: 1
   - Name: LightWarm
@@ -66,6 +66,6 @@ MonoBehaviour:
     EmissiveTexture: {fileID: 2800000, guid: 264f61a7b7b44ae43a69331d8bfe471a, type: 3}
     EmissiveColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}
     HasAreaLight: 1
-    AreaColour: {r: 2.572549, g: 1.397168, b: 0.49834713, a: 0}
+    AreaColour: {r: 5.145098, g: 2.8015194, b: 0.99669445, a: 0}
     AreaDisplacement: 0.25
     AreaSizeScale: 1

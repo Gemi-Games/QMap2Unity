@@ -30,4 +30,40 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1
     HasMesh: 1
-  Definitions: []
+  Definitions:
+  - Classname: info_player_start
+    Prefab: {fileID: 1136459754380680479, guid: 2bb84bd479883e64dacb5312ce9fab68,
+      type: 3}
+    IsStatic: 0
+    EntLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasConvexCollider: 0
+    IsConvexTrigger: 0
+    ColLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasCollider: 0
+    IsTrigger: 0
+    MeshLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasMesh: 0
+  - Classname: light_sun
+    Prefab: {fileID: 6083632006029259811, guid: d8f77ac63d17f5a49b5c93df6acc32c8,
+      type: 3}
+    IsStatic: 0
+    EntLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasConvexCollider: 0
+    IsConvexTrigger: 0
+    ColLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasCollider: 0
+    IsTrigger: 0
+    MeshLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    HasMesh: 0

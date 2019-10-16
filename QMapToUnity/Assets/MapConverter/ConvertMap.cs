@@ -53,7 +53,9 @@ namespace QMapToUnity
                 GameObject.DestroyImmediate(lCurrentLevels[i].gameObject);
 
             GameObject lLevelObject = new GameObject(s_Settings.MapFile.name);
-            lLevelObject.AddComponent<QMapLevel>();
+            QMapLevel lQMap = lLevelObject.AddComponent<QMapLevel>();
+            lQMap.EntDefs = s_Settings.EntDefs;
+
             lLevelObject.isStatic = true;
 
             LevelData lLevelData = MapParser.ParseMapToLevelData(s_Settings.MapFile);
@@ -223,6 +225,8 @@ namespace QMapToUnity
 
                                     lAreaLightGO.isStatic = lEntDef.IsStatic;
                                     //lAreaLightGO.layer = LayerMask.NameToLayer("AreaLight");
+
+                                    lAreaLightGO.AddComponent<DestroyObjectOnSpawn>();
 
                                     MeshFilter lALMFilter = lAreaLightGO.AddComponent<MeshFilter>();
                                     MeshRenderer lALMRender = lAreaLightGO.AddComponent<MeshRenderer>();

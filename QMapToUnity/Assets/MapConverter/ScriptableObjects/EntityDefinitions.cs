@@ -28,7 +28,7 @@ namespace QMapToUnity
     public struct EntDef
     {
         public string Classname;
-        public GameObject Prefab;
+        public UEntity Prefab;
 
         public bool IsStatic;
 
