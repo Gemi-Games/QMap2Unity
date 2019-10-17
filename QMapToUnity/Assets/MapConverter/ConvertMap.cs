@@ -46,7 +46,7 @@ namespace QMapToUnity
             }
 
             s_MaterialDic = new Dictionary<string, Material>(s_Settings.TexDefs.Textures.Length);
-            
+
             QMapLevel[] lCurrentLevels = GameObject.FindObjectsOfType<QMapLevel>();
 
             for (int i = 0; i < lCurrentLevels.Length; i++)
@@ -76,14 +76,16 @@ namespace QMapToUnity
                 GameObject lEntGO = null;
                 UEntity lUEnt = null;
 
-                if (lEntDef.Prefab != null)
+                if (lEntDef.ConvertedPrefab != null)
+                {
+                    lEntGO = GameObject.Instantiate(lEntDef.ConvertedPrefab).gameObject;
+                    lEntGO.name = i + " " + lQEnt.Classname;
+                    lUEnt = lEntGO.GetComponent<UEntity>();
+                }
+                else if (lEntDef.RuntimePrefab != null)
                 {
                     lEntGO = new GameObject(i + " " + lQEnt.Classname);
                     lUEnt = lEntGO.AddComponent<UEntity>();
-
-                    //lEntGO = GameObject.Instantiate(lEntDef.Prefab).gameObject;
-                    //lEntGO.name = i + " " + lQEnt.Classname;
-                    //lUEnt = lEntGO.GetComponent<UEntity>();
                 }
                 else
                 {

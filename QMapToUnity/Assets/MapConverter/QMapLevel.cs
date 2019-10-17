@@ -7,7 +7,7 @@ namespace QMapToUnity
         [HideInInspector]
         public EntityDefinitions EntDefs;
 
-        private void Awake()
+        private void Start()
         {
             UEntityManager.Instance.SetUp(EntDefs);
         }

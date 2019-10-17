@@ -28,7 +28,8 @@ namespace QMapToUnity
     public struct EntDef
     {
         public string Classname;
-        public UEntity Prefab;
+        public UEntity ConvertedPrefab;
+        public UEntity RuntimePrefab;
 
         public bool IsStatic;
 
@@ -49,7 +50,9 @@ namespace QMapToUnity
         public EntDef(string lClassname)
         {
             Classname = lClassname;
-            Prefab = null;
+
+            ConvertedPrefab = null;
+            RuntimePrefab = null;
 
             IsStatic = true;
 

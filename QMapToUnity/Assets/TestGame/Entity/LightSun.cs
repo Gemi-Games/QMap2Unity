@@ -16,22 +16,20 @@ public class LightSun : UEntity
         if (!GetValue("pitch", out m_Pitch))
             m_Pitch = 60f;
 
-    }
+        float lIntensity = 0f;
+        if (GetValue("intensity", out lIntensity))
+            m_Light.intensity = lIntensity;
 
-    public override void InitialiseEntity()
-    {
+        int lMode = 0;
+        if (GetValue("lightMode", out lMode))
+            m_Light.lightmapBakeType = (LightmapBakeType)lMode;
+        if (GetValue("shadowMode", out lMode))
+            m_Light.shadows = (LightShadows)lMode;
+
+        Color lColor;
+        if (GetValue("color", out lColor))
+            m_Light.color = lColor;
+
         transform.rotation = Quaternion.Euler(m_Pitch, m_Yaw, 0f);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

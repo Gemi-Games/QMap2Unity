@@ -92,17 +92,19 @@ namespace QMapToUnity
                 GameObject lNewObject = null;
                 UEntity lNewUEnt = null;
 
-                if (lEntDef.Prefab != null)
+                if (lEntDef.RuntimePrefab != null)
                 {
-                    lNewObject = GameObject.Instantiate(lEntDef.Prefab).gameObject;
+                    lNewObject = GameObject.Instantiate(lEntDef.RuntimePrefab).gameObject;
                     lNewObject.name = i + " " + lOldUEnt.Classname;
                     lNewUEnt = lNewObject.GetComponent<UEntity>();
                 }
-                else
+                else if (lEntDef.ConvertedPrefab == null)
                 {
                     lNewObject = new GameObject(i + " " + lOldUEnt.Classname);
                     lNewUEnt = lNewObject.AddComponent<UEmptyEntity>();
                 }
+                else
+                    continue;
 
                 lNewObject.isStatic = lEntDef.IsStatic;
                 lNewObject.layer = lEntDef.EntLayer.FindFirstLayerIndex();
@@ -132,7 +134,14 @@ namespace QMapToUnity
             }
 
             for (int i = 0; i < AllEntities.Length; i++)
-                DestroyImmediate(AllEntities[i].gameObject);
+            {
+                UEntity lOldUEnt = AllEntities[i];
+
+                EntDef lEntDef = lEntDefs.GetDefinition(lOldUEnt.Classname);
+
+                if (lEntDef.ConvertedPrefab == null)
+                    DestroyImmediate(AllEntities[i].gameObject);
+            }
         }
 
         public void Clear()

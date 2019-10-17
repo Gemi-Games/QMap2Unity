@@ -233,10 +233,19 @@ MonoBehaviour:
   SpawnFlags: 0
   m_CharController: {fileID: 2023529598568540001}
   m_Camera: {fileID: 3128774715065609299}
+  m_MoveForwardKey: 119
+  m_MoveBackKey: 115
+  m_LeftStrafeKey: 97
+  m_RightStrafeKey: 100
+  m_JumpKey: 32
   m_MouseSensitivity: 2
-  m_Acceleration: 160
-  m_MaxSpeed: 20
+  m_GroundAcceleration: 160
+  m_AirAcceleration: 16
+  m_GroundMaxSpeed: 20
+  m_AirMaxSpeed: 100
   m_Friction: 8
+  m_JumpHeight: 3
+  Velocity: {x: 0, y: 0, z: 0}
 --- !u!143 &2023529598568540001
 CharacterController:
   m_ObjectHideFlags: 0
@@ -250,7 +259,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 4
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 60
   m_StepOffset: 1.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

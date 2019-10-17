@@ -19,5 +19,5 @@ MonoBehaviour:
   CutoutMaterial: {fileID: 2100000, guid: ef4a82e89cf75114394a3a0144d2aa1d, type: 2}
   EmissiveMaterial: {fileID: 2100000, guid: ee1c7529293c0354a8e896127f1cccc2, type: 2}
   AreaLightMaterial: {fileID: 2100000, guid: 58cd431112b58104d91501b0a8a6c0f4, type: 2}
-  AutoGenerateUV2s: 0
+  AutoGenerateUV2s: 1
   UsingHDRPMaterials: 0

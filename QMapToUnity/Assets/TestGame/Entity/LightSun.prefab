@@ -44,6 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1066302a7e699a94194293da621d96b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Classname: 
+  KeyValuePairs: []
+  BrushGOs: []
+  HasAngle: 0
+  Angle: 0
+  HasTarget: 0
+  Target: 
+  HasTargetname: 0
+  Targetname: 
+  SpawnFlags: 0
+  m_Light: {fileID: 0}
 --- !u!108 &732500781340360567
 Light:
   m_ObjectHideFlags: 0
@@ -54,7 +65,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.96008176, b: 0.7971698, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
