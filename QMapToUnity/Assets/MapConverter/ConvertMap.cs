@@ -96,7 +96,7 @@ namespace QMapToUnity
                 lUEnts.Add(lUEnt);
 
                 lEntGO.isStatic = lEntDef.IsStatic;
-                lEntGO.layer = lEntDef.EntLayer.FindFirstLayerIndex();
+                lEntGO.layer = lEntDef.EntLayer.LayerIndex;
 
                 lEntGO.transform.parent = lLevelObject.transform;
 
@@ -176,7 +176,7 @@ namespace QMapToUnity
                             lColliderGO.transform.parent = lEntGO.transform;
 
                             lColliderGO.isStatic = lEntDef.IsStatic;
-                            lColliderGO.layer = lEntDef.ColLayer.FindFirstLayerIndex();
+                            lColliderGO.layer = lEntDef.ColLayer.LayerIndex;
 
                             MeshCollider lMCollider = lColliderGO.AddComponent<MeshCollider>();
                             lMCollider.sharedMesh = lNewMeshes[0];
@@ -197,7 +197,7 @@ namespace QMapToUnity
                                 lMeshGO.transform.parent = lColliderGO.transform;
 
                                 lMeshGO.isStatic = lEntDef.IsStatic;
-                                lMeshGO.layer = lEntDef.MeshLayer.FindFirstLayerIndex();
+                                lMeshGO.layer = lEntDef.MeshLayer.LayerIndex;
 
                                 MeshFilter lMFilter = lMeshGO.AddComponent<MeshFilter>();
                                 MeshRenderer lMRender = lMeshGO.AddComponent<MeshRenderer>();

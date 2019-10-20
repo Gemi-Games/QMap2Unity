@@ -107,7 +107,7 @@ namespace QMapToUnity
                     continue;
 
                 lNewObject.isStatic = lEntDef.IsStatic;
-                lNewObject.layer = lEntDef.EntLayer.FindFirstLayerIndex();
+                lNewObject.layer = lEntDef.EntLayer.LayerIndex;
 
                 lNewObject.transform.parent = lOldUEnt.transform.parent;
                 lNewObject.transform.position = lOldUEnt.transform.position;

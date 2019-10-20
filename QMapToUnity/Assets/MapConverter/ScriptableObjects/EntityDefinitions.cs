@@ -34,17 +34,17 @@ namespace QMapToUnity
         public bool IsStatic;
 
         [Header("Entity")]
-        public LayerMask EntLayer;
+        public SingleLayerMask EntLayer;
         public bool HasConvexCollider;
         public bool IsConvexTrigger;
 
         [Header("Colliders")]
-        public LayerMask ColLayer;
+        public SingleLayerMask ColLayer;
         public bool HasCollider;
         public bool IsTrigger;
 
         [Header("Meshes")]
-        public LayerMask MeshLayer;
+        public SingleLayerMask MeshLayer;
         public bool HasMesh;
 
         public EntDef(string lClassname)
@@ -56,15 +56,15 @@ namespace QMapToUnity
 
             IsStatic = true;
 
-            EntLayer = 1;
+            EntLayer = new SingleLayerMask(0);
             HasConvexCollider = false;
             IsConvexTrigger = false;
 
-            ColLayer = 1;
+            ColLayer = new SingleLayerMask(0);
             HasCollider = true;
             IsTrigger = false;
 
-            MeshLayer = 1;
+            MeshLayer = new SingleLayerMask(0);
             HasMesh = true;
         }
     }
