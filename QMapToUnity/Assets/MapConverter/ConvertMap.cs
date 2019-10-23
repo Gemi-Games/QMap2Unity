@@ -73,6 +73,9 @@ namespace QMapToUnity
                 QEntity lQEnt = lLevelData.Entities[i];
                 EntDef lEntDef = s_Settings.EntDefs.GetDefinition(lQEnt.Classname);
 
+                if (lEntDef.Classname == null)
+                    continue;
+
                 GameObject lEntGO = null;
                 UEntity lUEnt = null;
 

@@ -6,7 +6,10 @@ namespace QMapToUnity
     [CreateAssetMenu(fileName = "EntityDefinitions", menuName = "QMapToUnity/Entity Definitions")]
     public class EntityDefinitions : ScriptableObject
     {
+        public static EntDef NULL = new EntDef(null);
+
         public EntDef Worldspawn = new EntDef(MapParser.WORLDSPAWN);
+
         public EntDef[] Definitions;
 
         public EntDef GetDefinition(string lClassname)
@@ -20,7 +23,7 @@ namespace QMapToUnity
 
             Debug.LogWarning(lClassname + " definition could not be found! Defaulting to Worldspawn definition.");
 
-            return Worldspawn;
+            return NULL;
         }
     }
 
