@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace QMapToUnity
@@ -25,7 +23,7 @@ namespace QMapToUnity
         {
             s_Settings = lSettings;
 
-            EditorGUI.BeginChangeCheck();
+            //EditorGUI.BeginChangeCheck();
 
             if (s_Settings.UsingHDRPMaterials)
             {
@@ -153,6 +151,7 @@ namespace QMapToUnity
 
                     Mesh[] lNewMeshes = UMeshCreator.ConvertToMeshes(lMeshData);
 
+#if UNITY_EDITOR
                     if (s_Settings.AutoGenerateUV2s)
                     {
                         for (int m = 1; m < lNewMeshes.Length; m++)
@@ -166,7 +165,7 @@ namespace QMapToUnity
                             Unwrapping.GenerateSecondaryUVSet(lNewMeshes[m], lParam);
                         }
                     }
-
+#endif
                     if (lEntDef.HasCollider || lEntDef.HasMesh)
                     {
                         GameObject lColliderGO = new GameObject("Brush " + j);
@@ -305,9 +304,9 @@ namespace QMapToUnity
                                     lAreaLightMesh.RecalculateBounds();
 
                                     lAreaLightMesh.name = "Area Light Mesh";
-
+#if UNITY_EDITOR
                                     Unwrapping.GenerateSecondaryUVSet(lAreaLightMesh);
-
+#endif
                                     lALMFilter.mesh = lAreaLightMesh;
 
                                     //if (s_Settings.SaveLevelAsAsset)
@@ -415,7 +414,7 @@ namespace QMapToUnity
             //    bool lBreakpoint = false;
             //}
 
-            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            //EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
 
         private static string GetAssetPath(params string[] lNames)
