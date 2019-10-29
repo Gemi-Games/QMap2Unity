@@ -6,8 +6,6 @@ namespace QMapToUnity
     [CreateAssetMenu(fileName = "EntityDefinitions", menuName = "QMapToUnity/Entity Definitions")]
     public class EntityDefinitions : ScriptableObject
     {
-        public static EntDef NULL = new EntDef(null);
-
         public EntDef Worldspawn = new EntDef(MapParser.WORLDSPAWN);
 
         public EntDef[] Definitions;
@@ -21,9 +19,11 @@ namespace QMapToUnity
                     if (lClassname == Definitions[i].Classname)
                         return Definitions[i];
 
-            Debug.LogWarning(lClassname + " definition could not be found! Defaulting to Worldspawn definition.");
+            Debug.LogWarning(lClassname + " definition could not be found! Defaulting to Worldspawn settings.");
 
-            return NULL;
+            EntDef lEntDef = new EntDef(Worldspawn, null, true);
+
+            return lEntDef;
         }
     }
 
@@ -69,6 +69,35 @@ namespace QMapToUnity
 
             MeshLayer = new SingleLayerMask(0);
             HasMesh = true;
+        }
+
+        public EntDef(EntDef lOriginal, string lNewClassname, bool lNullPrefabs = false)
+        {
+            Classname = lNewClassname;
+
+            if (lNullPrefabs)
+            {
+                ConvertedPrefab = null;
+                RuntimePrefab = null;
+            }
+            else
+            {
+                ConvertedPrefab = lOriginal.ConvertedPrefab;
+                RuntimePrefab = lOriginal.RuntimePrefab;
+            }
+
+            IsStatic = lOriginal.IsStatic;
+
+            EntLayer = lOriginal.EntLayer;
+            HasConvexCollider = lOriginal.HasConvexCollider;
+            IsConvexTrigger = lOriginal.IsConvexTrigger;
+
+            ColLayer = lOriginal.ColLayer;
+            HasCollider = lOriginal.HasCollider;
+            IsTrigger = lOriginal.IsTrigger;
+
+            MeshLayer = lOriginal.MeshLayer;
+            HasMesh = lOriginal.HasMesh;
         }
     }
 }

@@ -2,10 +2,10 @@
 using UnityEngine;
 
 [Serializable]
-public class SingleLayerMask
+public struct SingleLayerMask
 {
     [SerializeField]
-    private int m_LayerIndex = 0;
+    private int m_LayerIndex;
 
     public SingleLayerMask(int lLayerIndex)
     {

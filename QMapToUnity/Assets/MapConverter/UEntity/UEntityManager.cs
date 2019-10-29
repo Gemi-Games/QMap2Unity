@@ -142,7 +142,7 @@ namespace QMapToUnity
 
                 EntDef lEntDef = lEntDefs.GetDefinition(lOldUEnt.Classname);
 
-                if (lEntDef.Classname == null || lEntDef.ConvertedPrefab == null)
+                if (lEntDef.Classname != null && lEntDef.ConvertedPrefab == null)
                     DestroyImmediate(AllEntities[i].gameObject);
             }
         }

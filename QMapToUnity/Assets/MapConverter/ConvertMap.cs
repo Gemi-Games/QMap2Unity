@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace QMapToUnity
@@ -71,13 +72,15 @@ namespace QMapToUnity
                 QEntity lQEnt = lLevelData.Entities[i];
                 EntDef lEntDef = s_Settings.EntDefs.GetDefinition(lQEnt.Classname);
 
-                if (lEntDef.Classname == null)
-                    continue;
-
                 GameObject lEntGO = null;
                 UEntity lUEnt = null;
 
-                if (lEntDef.ConvertedPrefab != null)
+                if (lEntDef.Classname == null)
+                {
+                    lEntGO = new GameObject(i + " NULL Classname");
+                    lUEnt = lEntGO.AddComponent<UEmptyEntity>();
+                }
+                else if (lEntDef.ConvertedPrefab != null)
                 {
                     lEntGO = GameObject.Instantiate(lEntDef.ConvertedPrefab).gameObject;
                     lEntGO.name = i + " " + lQEnt.Classname;
@@ -414,7 +417,9 @@ namespace QMapToUnity
             //    bool lBreakpoint = false;
             //}
 
-            //EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+#if UNITY_EDITOR
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+#endif
         }
 
         private static string GetAssetPath(params string[] lNames)
