@@ -16,6 +16,7 @@ namespace QMapToUnity
         private static string s_AssetPath;
 
         private static Dictionary<string, Material> s_MaterialDic;
+        private static List<Material> s_MaterialList;
 
         private static int s_BaseColourMapID;
         private static int s_EmissionMapID;
@@ -49,6 +50,7 @@ namespace QMapToUnity
             }
 
             s_MaterialDic = new Dictionary<string, Material>(s_Settings.TexDefs.Textures.Length);
+            s_MaterialList = new List<Material>(s_Settings.TexDefs.Textures.Length);
 
             QMapLevel[] lCurrentLevels = GameObject.FindObjectsOfType<QMapLevel>();
 
@@ -71,8 +73,12 @@ namespace QMapToUnity
 
             List<UEntity> lUEnts = new List<UEntity>(lLevelData.Entities.Length);
 
+            List<Vector3> lAllVerts = new List<Vector3>(10000);
+
             for (int i = 0; i < lLevelData.Entities.Length; i++)
             {
+                List<Vector3> lEntityVerts = new List<Vector3>(1000);
+
                 QEntity lQEnt = lLevelData.Entities[i];
                 EntDef lEntDef = s_Settings.EntDefs.GetDefinition(lQEnt.Classname);
 
@@ -119,29 +125,32 @@ namespace QMapToUnity
 
                     CMesh lCMesh = ClipMesh.CreateConvexPolyhedron(lBrush.Planes);
 
-                    List<Vector3> lVertList = new List<Vector3>();
+                    List<Vector3> lBrushVertList = new List<Vector3>();
 
                     for (int v = 0; v < lCMesh.V.Length; v++)
                         if (lCMesh.V[v].Visible)
-                            lVertList.Add(lCMesh.V[v].Position);
+                            lBrushVertList.Add(lCMesh.V[v].Position);
 
                     Vector3 lMin;
                     Vector3 lMax;
 
-                    GetMinMax(lVertList.ToArray(), out lMin, out lMax);
+                    GetMinMax(lBrushVertList.ToArray(), out lMin, out lMax);
 
                     Vector3 lSize = lMax - lMin;
                     Vector3 lMidPointDelta = lMin + lSize * 0.5f;
 
                     lCMesh = ClipMesh.CreateConvexPolyhedron(lBrush.Planes, lMidPointDelta, lSize + Vector3.one * 0.2f);
 
-                    lVertList.Clear();
+                    lBrushVertList.Clear();
 
                     for (int v = 0; v < lCMesh.V.Length; v++)
                         if (lCMesh.V[v].Visible)
-                            lVertList.Add(lCMesh.V[v].Position);
+                            lBrushVertList.Add(lCMesh.V[v].Position);
 
-                    GetMinMax(lVertList.ToArray(), out lMin, out lMax);
+                    GetMinMax(lBrushVertList.ToArray(), out lMin, out lMax);
+
+                    lAllVerts.AddRange(lBrushVertList);
+                    lEntityVerts.AddRange(lBrushVertList);
 
                     lSize = lMax - lMin;
                     lMidPointDelta = lMin + lSize * 0.5f;
@@ -193,7 +202,7 @@ namespace QMapToUnity
                             lMCollider.isTrigger = lEntDef.IsTrigger;
 
                             //if (s_Settings.SaveLevelAsAsset)
-                            //    AssetDatabase.CreateAsset(lNewMeshes[0], GetAssetPath(lEntGO.name, lColliderGO.name, lNewMeshes[0].name));
+                            //AssetDatabase.CreateAsset(lNewMeshes[0], GetAssetPath(lEntGO.name, lColliderGO.name, lNewMeshes[0].name));
                         }
 
                         if (lEntDef.HasMesh)
@@ -219,7 +228,7 @@ namespace QMapToUnity
                                 lMFilter.mesh = lNewMeshes[m];
 
                                 //if (s_Settings.SaveLevelAsAsset)
-                                //    AssetDatabase.CreateAsset(lNewMeshes[m], GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lNewMeshes[m].name));
+                                //AssetDatabase.CreateAsset(lNewMeshes[m], GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lNewMeshes[m].name));
 
                                 /**
                                  * 
@@ -312,12 +321,12 @@ namespace QMapToUnity
 
                                     lAreaLightMesh.name = "Area Light Mesh";
 #if UNITY_EDITOR
-                                    Unwrapping.GenerateSecondaryUVSet(lAreaLightMesh);
+                                    Unwrapping.GenerateSecondaryUVSet(lAreaLightMesh); // TODO May be always needed
 #endif
                                     lALMFilter.mesh = lAreaLightMesh;
 
                                     //if (s_Settings.SaveLevelAsAsset)
-                                    //    AssetDatabase.CreateAsset(lAreaLightMesh, GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lAreaLightMesh.name));
+                                    //AssetDatabase.CreateAsset(lAreaLightMesh, GetAssetPath(lEntGO.name, lColliderGO.name, lMeshGO.name, lAreaLightMesh.name));
                                 }
                             }
                         }
@@ -371,10 +380,10 @@ namespace QMapToUnity
                     {
                         Mesh[] lConvexMesh = UMeshCreator.ConvertToMeshes(lConvexData);
 
-                        //if (!AssetDatabase.IsValidFolder("Assets/" + m_MapFile.name))
-                        //    AssetDatabase.CreateFolder("Assets", m_MapFile.name);
+                        //if (!AssetDatabase.IsValidFolder("Assets/" + s_Settings.MapFile.name))
+                            //AssetDatabase.CreateFolder("Assets", s_Settings.MapFile.name);
 
-                        //AssetDatabase.CreateAsset(lConvexMesh[0], "Assets/" + m_MapFile.name + "/OriginalMesh.asset");
+                        //AssetDatabase.CreateAsset(lConvexMesh[0], "Assets/" + s_Settings.MapFile.name + "/OriginalMesh.asset");
 
                         MeshCollider lMCollider = lUEnt.gameObject.AddComponent<MeshCollider>();
                         lMCollider.sharedMesh = lConvexMesh[0];
@@ -382,8 +391,15 @@ namespace QMapToUnity
                         lMCollider.isTrigger = lEntDef.IsConvexTrigger;
 
                         //if (s_Settings.SaveLevelAsAsset)
-                        //    AssetDatabase.CreateAsset(lConvexMesh[0], GetAssetPath(lEntGO.name, "CONVEX", lConvexMesh[0].name));
+                        //AssetDatabase.CreateAsset(lConvexMesh[0], GetAssetPath(lEntGO.name, "CONVEX", lConvexMesh[0].name));
                     }
+
+                    if (lQEnt.Classname == "volume_enemy_spawn")
+                    {
+                        bool lWhat = true;
+                    }
+
+                    lUEnt.Extents = new Extents3D(lMidPoint, lSize);
 
                     lUEnt.SetupEntity(lQEnt);
 
@@ -402,6 +418,15 @@ namespace QMapToUnity
                 }
             }
 
+            Vector3 lAllMin, lAllMax;
+
+            GetMinMax(lAllVerts.ToArray(), out lAllMin, out lAllMax);
+
+            Vector3 lAllSize = lAllMax - lAllMin;
+            Vector3 lAllCenter = lAllMin + lAllSize * 0.5f;
+
+            lQMap.Extents = new Extents3D(lAllCenter, lAllSize);
+
             //var lSO = new SerializedObject(lLevelObject);
 
             //if (lSO.ApplyModifiedProperties())
@@ -411,9 +436,15 @@ namespace QMapToUnity
 
             //if (s_Settings.SaveLevelAsAsset)
             //{
-            //    PrefabUtility.SaveAsPrefabAsset(lLevelObject, "Assets/" + s_Settings.MapFile.name + ".prefab", out lSuccess);
-            //    AssetDatabase.Refresh();
-            //    AssetDatabase.SaveAssets();
+            bool lSuccess;
+
+
+            //for (int i = 0; i < s_MaterialList.Count; i++)
+                //AssetDatabase.CreateAsset(s_MaterialList[i], "Assets/" + s_Settings.MapFile.name + "_MAT " + i + ".asset");
+
+            //PrefabUtility.SaveAsPrefabAsset(lLevelObject, "Assets/" + s_Settings.MapFile.name + ".prefab", out lSuccess);
+            //AssetDatabase.Refresh();
+            //AssetDatabase.SaveAssets();
             //}
 
             //if (EditorGUI.EndChangeCheck())
@@ -527,6 +558,7 @@ namespace QMapToUnity
                             lDefaultMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
 
                             s_MaterialDic.Add(lTextures[i].name, lDefaultMat);
+                            s_MaterialList.Add(lDefaultMat);
                         }
                         else if (lTexDef.IsCutout)
                         {
@@ -539,6 +571,7 @@ namespace QMapToUnity
                                 lCutoutMat.SetFloat(s_CutoffEnabledID, 1f);
 
                             s_MaterialDic.Add(lTextures[i].name, lCutoutMat);
+                            s_MaterialList.Add(lCutoutMat);
                         }
                         else
                         {
@@ -547,6 +580,7 @@ namespace QMapToUnity
                             lDefaultMat.SetTexture(s_BaseColourMapID, lTextures[i]);
 
                             s_MaterialDic.Add(lTextures[i].name, lDefaultMat);
+                            s_MaterialList.Add(lDefaultMat);
                         }
 
                         if (lTexDef.HasAreaLight)
@@ -563,6 +597,7 @@ namespace QMapToUnity
                             lAreaLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
 
                             s_MaterialDic.Add(lTextures[i].name + "_AreaLightMAT", lAreaLightMat);
+                            s_MaterialList.Add(lAreaLightMat);
                         }
                     }
                     else
@@ -572,6 +607,7 @@ namespace QMapToUnity
                         lDefaultMat.SetTexture(s_BaseColourMapID, lTextures[i]);
 
                         s_MaterialDic.Add(lTextures[i].name, lDefaultMat);
+                        s_MaterialList.Add(lDefaultMat);
                     }
                 }
             }

@@ -4,12 +4,9 @@ namespace QMapToUnity
 {
     public class QMapLevel : MonoBehaviour
     {
+        public Extents3D Extents;
+
         [HideInInspector]
         public EntityDefinitions EntDefs;
-
-        private void Start()
-        {
-            UEntityManager.Instance.SetUp(EntDefs);
-        }
     }
 }

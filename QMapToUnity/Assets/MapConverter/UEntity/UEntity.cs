@@ -31,6 +31,9 @@ namespace QMapToUnity
         [HideInInspector, SerializeField]
         public QBrush[] Brushes;
 
+        [SerializeField]
+        public Extents3D Extents;
+
         [HideInInspector, SerializeField]
         public GameObject[] BrushGOs;
 

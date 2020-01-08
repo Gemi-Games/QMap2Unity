@@ -100,6 +100,7 @@ namespace QMapToUnity
                     lNewObject = GameObject.Instantiate(lEntDef.RuntimePrefab).gameObject;
                     lNewObject.name = i + " " + lOldUEnt.Classname;
                     lNewUEnt = lNewObject.GetComponent<UEntity>();
+                    lNewUEnt.Extents = lOldUEnt.Extents;
                 }
                 else if (lEntDef.ConvertedPrefab == null)
                 {
