@@ -1,9 +1,21 @@
 fileFormatVersion: 2
-guid: f90daf44496cb3a40b045cf52de38ab4
+guid: b72b01c4a5a3bea409585cb4f0f285b6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_PersistentViewDataDictionary: {instanceID: 0}
+  - m_MapFile: {fileID: 4900000, guid: ae0df25c39fe24d489593b68dc746a30, type: 3}
+  - m_TexDefs: {fileID: 11400000, guid: 25ee2b7a6c3557443907a920f9f9db38, type: 2}
+  - m_EntDefs: {fileID: 11400000, guid: 6eced185076c2e94fbefe8d701fc1a61, type: 2}
+  - m_DefaultStandardMaterial: {fileID: 2100000, guid: ac385714993be704692eb7cde555cbc0,
+      type: 2}
+  - m_DefaultCutoutMaterial: {fileID: 2100000, guid: ef4a82e89cf75114394a3a0144d2aa1d,
+      type: 2}
+  - m_DefaultEmissiveMaterial: {fileID: 2100000, guid: ee1c7529293c0354a8e896127f1cccc2,
+      type: 2}
+  - m_DefaultAreaLightMaterial: {fileID: 2100000, guid: 58cd431112b58104d91501b0a8a6c0f4,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
