@@ -28,5 +28,15 @@ namespace QMapToUnity
 
             m_Valid = true;
         }
+
+        public bool IsTouching(Vector3 lPos)
+        {
+            if (lPos.x < Min.x || lPos.x > Max.x ||
+                lPos.z < Min.z || lPos.z > Max.z ||
+                lPos.y < Min.y || lPos.y > Max.y )
+                return false;
+            else
+                return true;
+        }
     }
 }
