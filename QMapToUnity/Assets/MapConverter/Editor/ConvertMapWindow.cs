@@ -9,15 +9,6 @@ namespace QMapToUnity
         [SerializeField]
         private ConvertMapSettings m_Settings;
 
-        private string m_AssetPath;
-
-        private Dictionary<string, Material> m_MaterialDic;
-
-        private int m_BaseColourMapID;
-        private int m_CutoutAlphaID;
-
-        private GameObject m_LevelObject;
-
         [MenuItem("Q2U", menuItem = "Q2U/QMapToUnity Window")]
         public static void ShowWindow()
         {

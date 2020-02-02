@@ -222,7 +222,7 @@ namespace QMapToUnity
 
                                 lMRender.sharedMaterial = s_MaterialDic[lTextures[m - 1].name];
                                 lMRender.receiveShadows = true;
-                                lMRender.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+                                lMRender.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                                 lMRender.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
 
                                 lMFilter.mesh = lNewMeshes[m];
