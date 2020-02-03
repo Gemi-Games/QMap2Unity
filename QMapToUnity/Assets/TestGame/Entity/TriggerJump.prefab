@@ -40,13 +40,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6409423876327687118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dbefb9305671ce47b36b831584cd1ea, type: 3}
+  m_Script: {fileID: 11500000, guid: ed101da16e594d3488d72011fa447be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Classname: 
-  KeyValuePairs:
-  - Key: 
-    Value: 
+  KeyValuePairs: []
+  Extents:
+    Center: {x: 0, y: 0, z: 0}
+    Size: {x: 0, y: 0, z: 0}
+    Half: {x: 0, y: 0, z: 0}
+    Min: {x: 0, y: 0, z: 0}
+    Max: {x: 0, y: 0, z: 0}
   BrushGOs: []
   HasAngle: 0
   Angle: 0

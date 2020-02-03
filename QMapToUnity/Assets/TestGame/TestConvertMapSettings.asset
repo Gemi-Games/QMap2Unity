@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10983e07ee577a74ca8a739afb80b9da, type: 3}
   m_Name: TestConvertMapSettings
   m_EditorClassIdentifier: 
-  MapFile: {fileID: 4900000, guid: 2e26f29d64f3ac64aa63440f05d45c5b, type: 3}
-  TexDefs: {fileID: 11400000, guid: 66dbbee70489c274697752fb309f1096, type: 2}
-  EntDefs: {fileID: 11400000, guid: ee27142f6d2f70f49a0ee961b77d94e6, type: 2}
+  MapFile: {fileID: 4900000, guid: dccdee50e5c840047a30e03b0b6d0489, type: 3}
+  TexDefs: {fileID: 11400000, guid: 2147354f173bd644695b49f0d2c5963c, type: 2}
+  EntDefs: {fileID: 11400000, guid: 51092273f2e04f844b0d962e5d32d107, type: 2}
   StandardMaterial: {fileID: 2100000, guid: ac385714993be704692eb7cde555cbc0, type: 2}
   CutoutMaterial: {fileID: 2100000, guid: ef4a82e89cf75114394a3a0144d2aa1d, type: 2}
   EmissiveMaterial: {fileID: 2100000, guid: ee1c7529293c0354a8e896127f1cccc2, type: 2}

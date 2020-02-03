@@ -18,112 +18,94 @@ MonoBehaviour:
     RuntimePrefab: {fileID: 0}
     IsStatic: 1
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 1
     IsTrigger: 0
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 1
   Definitions:
   - Classname: info_player_start
     ConvertedPrefab: {fileID: 0}
-    RuntimePrefab: {fileID: 1136459754380680479, guid: 2bb84bd479883e64dacb5312ce9fab68,
+    RuntimePrefab: {fileID: 1136459754380680479, guid: 2166d508ccdc7aa4b88893d1bbaf9962,
       type: 3}
     IsStatic: 0
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 0
     IsTrigger: 0
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 0
   - Classname: info_target
-    ConvertedPrefab: {fileID: 957652695669480500, guid: 2f7ee4096b863e64cb542fec80bd08b9,
+    ConvertedPrefab: {fileID: 957652695669480500, guid: be60f684d22059e46b3296baa6ba0f6a,
       type: 3}
     RuntimePrefab: {fileID: 0}
-    IsStatic: 0
+    IsStatic: 1
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 0
     IsTrigger: 0
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 0
   - Classname: light_sun
-    ConvertedPrefab: {fileID: 6083632006029259811, guid: d8f77ac63d17f5a49b5c93df6acc32c8,
+    ConvertedPrefab: {fileID: 6083632006029259811, guid: 8e267b9e4bc97854b920f01242e419d7,
       type: 3}
     RuntimePrefab: {fileID: 0}
-    IsStatic: 0
+    IsStatic: 1
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 0
     IsTrigger: 0
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 0
   - Classname: light_point
-    ConvertedPrefab: {fileID: 2547586025721683168, guid: ed7699c931ff5a644b39c574a9b810bf,
+    ConvertedPrefab: {fileID: 2547586025721683168, guid: 5166d18d6d6a0484d95b574d5c27803d,
       type: 3}
     RuntimePrefab: {fileID: 0}
-    IsStatic: 0
+    IsStatic: 1
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 0
     IsTrigger: 0
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 0
   - Classname: trigger_jump
     ConvertedPrefab: {fileID: 0}
-    RuntimePrefab: {fileID: 7251279878038473107, guid: ad36ceaef2b8fb14a8ca06a4e6b37c62,
+    RuntimePrefab: {fileID: 7251279878038473107, guid: 6241a17a330206e4cb6b9ffd22e3cacd,
       type: 3}
-    IsStatic: 0
+    IsStatic: 1
     EntLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasConvexCollider: 0
     IsConvexTrigger: 0
     ColLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasCollider: 1
     IsTrigger: 1
     MeshLayer:
-      serializedVersion: 2
-      m_Bits: 1
+      m_LayerIndex: 0
     HasMesh: 0
