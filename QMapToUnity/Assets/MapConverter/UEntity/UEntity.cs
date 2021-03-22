@@ -259,7 +259,7 @@ namespace QMapToUnity
             if (GetValue(lKey, out lString))
             {
                 string[] lValues = lString.Split(' ');
-                lValue = new Vector3(float.Parse(lValues[0]) / 16f, float.Parse(lValues[2]) / 16f, float.Parse(lValues[1]) / 16f);
+                lValue = new Vector3(float.Parse(lValues[0]), float.Parse(lValues[2]), float.Parse(lValues[1]));
                 return true;
             }
 

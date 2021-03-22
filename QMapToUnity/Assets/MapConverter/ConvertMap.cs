@@ -627,7 +627,7 @@ namespace QMapToUnity
             for (int m = 1; m < lMeshCount; m++)
             {
                 Texture lTexture = lTextures[m - 1];
-                Vector2 lTexSizeScale = new Vector2(16f / lTexture.width, 16f / lTexture.height);
+                Vector2 lTexSizeScale = new Vector2(lTexture.width, lTexture.height);
 
                 List<FaceInfo> lFoundFaces = new List<FaceInfo>();
 
@@ -644,7 +644,7 @@ namespace QMapToUnity
                     {
                         TextureData lTexData = lFaceInfo.Plane.TextureData;
 
-                        lTexData.Offset = lTexData.Offset / 16f;
+                        lTexData.Offset = lTexData.Offset;
                         lTexData.Offset.y = -lTexData.Offset.y;
                         lTexData.Offset *= lTexSizeScale;
 

@@ -17,7 +17,7 @@ namespace QMapToUnity
         public const string CLASSNAME = "classname";
         public const string WORLDSPAWN = "worldspawn";
 
-        private const float MAP_SCALE = 1f / 16f;
+        private const float MAP_SCALE = 1f;
 
         private static ParseState s_State;
 
