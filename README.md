@@ -28,4 +28,4 @@ A Unity engine extension that convert a Quake style '.map' file into mesh, colli
 - Sorry there's no docs! There's a basic demo game included that has the bare bones on how to set up a game.
 - Also, the conversion code is an absolute state!
 
-Email me at marios.kalogerou@gemi-games.com if you have any questions whatsoever or make anything with it!
+Email me at ~marios.kalogerouatgemi-games.com~ marioskalogerou@proton.me if you have any questions whatsoever or make anything with it!
